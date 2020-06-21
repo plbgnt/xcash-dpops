@@ -965,7 +965,7 @@ function download_xcash()
 {
   echo -ne "${COLOR_PRINT_YELLOW}Downloading X-CASH${END_COLOR_PRINT}"
   cd "${XCASH_DPOPS_INSTALLATION_DIR}"
-  git clone --quiet --branch chore/update-installer ${XCASH_URL}
+  git clone --quiet --branch chore/update-wallet ${XCASH_URL}
   echo -ne "\r${COLOR_PRINT_GREEN}Downloading X-CASH${END_COLOR_PRINT}"
   echo
 }
@@ -1395,7 +1395,7 @@ function update_xcash()
   echo -ne "${COLOR_PRINT_YELLOW}Updating X-CASH (This Might Take A While)${END_COLOR_PRINT}"
   if [ ! -d "$XCASH_DIR" ]; then
     cd "${XCASH_DPOPS_INSTALLATION_DIR}"
-    git clone --quiet --branch chore/update-installer "${XCASH_URL}"
+    git clone --quiet --branch chore/update-wallet "${XCASH_URL}"
   fi
   cd "${XCASH_DIR}"
   data=$([ $(git rev-parse HEAD) = $(git ls-remote $(git rev-parse --abbrev-ref @{u} | sed 's/\// /g') | cut -f1) ] && echo "1" || echo "0")
